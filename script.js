@@ -1,5 +1,5 @@
 /* =========================================================
-   UML DIAGRAM DATA
+   14 UML DIAGRAMS
 ========================================================= */
 
 const diagrams = [
@@ -111,7 +111,7 @@ let timeLeft = 10;
 
 
 /* =========================================================
-   PICTURE + LETTERS VARIABLES
+   LETTER QUIZ VARIABLES
 ========================================================= */
 
 let letterAnswer = "";
@@ -201,7 +201,7 @@ function showScreen(id) {
 
 
 /* =========================================================
-   START NORMAL GAME
+   START NORMAL QUIZ
 ========================================================= */
 
 function startGame(
@@ -210,15 +210,8 @@ function startGame(
 
     currentMode = mode;
 
-
-    /*
-        All 14 diagrams are used once.
-        New order every game.
-    */
-
     questions =
         shuffle(diagrams);
-
 
     currentQuestion = 0;
 
@@ -226,11 +219,9 @@ function startGame(
 
     answered = false;
 
-
     stopTimer();
 
     closeQuizTypes();
-
 
     showScreen(
         "quizScreen"
@@ -251,7 +242,7 @@ function startGame(
 
 
 /* =========================================================
-   LOAD NORMAL QUESTION
+   LOAD QUESTION
 ========================================================= */
 
 function loadQuestion() {
@@ -265,7 +256,8 @@ function loadQuestion() {
         .getElementById(
             "feedback"
         )
-        .textContent = "";
+        .textContent =
+        "";
 
 
     document
@@ -389,7 +381,9 @@ function loadQuestion() {
 
         startTimer();
 
+
         return;
+
     }
 
 
@@ -443,7 +437,7 @@ function loadQuestion() {
 
 
         /*
-            Unlimited time.
+            UNLIMITED TIME
         */
 
         document
@@ -464,13 +458,12 @@ function loadQuestion() {
 
 
 /* =========================================================
-   TIMER
+   10 SECOND TIMER
 ========================================================= */
 
 function startTimer() {
 
     stopTimer();
-
 
     timeLeft = 10;
 
@@ -516,7 +509,6 @@ function startTimer() {
                             questions[
                                 currentQuestion
                             ].name,
-
                             "Time's up!"
                         );
 
@@ -559,7 +551,7 @@ function stopTimer() {
 
 
 /* =========================================================
-   CREATE 4 CHOICES
+   CREATE CHOICES
 ========================================================= */
 
 function createChoices(
@@ -573,7 +565,8 @@ function createChoices(
             );
 
 
-    container.innerHTML = "";
+    container.innerHTML =
+        "";
 
 
     const wrongChoices =
@@ -670,7 +663,8 @@ function answerChoice(
     buttons.forEach(
         btn => {
 
-            btn.disabled = true;
+            btn.disabled =
+                true;
 
         }
     );
@@ -746,7 +740,7 @@ function answerChoice(
 
 
 /* =========================================================
-   CREATE PICTURE + LETTERS
+   PICTURE + LETTERS
 ========================================================= */
 
 function createLetterGame(
@@ -754,16 +748,16 @@ function createLetterGame(
 ) {
 
     /*
-        Picture + Letters uses
-        the short one-word answer.
+        The answer uses ONE WORD
+        for this game.
 
         Example:
 
         Class Diagram
         -> CLASS
 
-        Composite Structure Diagram
-        -> COMPOSITE
+        Activity Diagram
+        -> ACTIVITY
     */
 
     letterAnswer =
@@ -787,13 +781,16 @@ function createLetterGame(
             );
 
 
-    answerBoxes.innerHTML = "";
+    answerBoxes.innerHTML =
+        "";
 
-    letterButtons.innerHTML = "";
+
+    letterButtons.innerHTML =
+        "";
 
 
     /*
-        Create answer boxes.
+        Create boxes.
     */
 
     for (
@@ -832,7 +829,7 @@ function createLetterGame(
 
 
     /*
-        Extra random letters.
+        Add extra random letters.
     */
 
     const alphabet =
@@ -849,25 +846,17 @@ function createLetterGame(
         );
 
 
-    const extraCount =
-        Math.max(
-            6,
-            letterAnswer.length
-        );
-
-
     const extras =
         shuffle(
             extraLetters
         ).slice(
             0,
-            extraCount
+            Math.max(
+                6,
+                letterAnswer.length
+            )
         );
 
-
-    /*
-        Combine + shuffle.
-    */
 
     letters =
         shuffle([
@@ -877,11 +866,14 @@ function createLetterGame(
 
 
     /*
-        Create letter buttons.
+        Create buttons.
     */
 
     letters.forEach(
-        (letter, index) => {
+        (
+            letter,
+            index
+        ) => {
 
             const button =
                 document.createElement(
@@ -925,11 +917,6 @@ function createLetterGame(
     );
 
 
-    /*
-        CHECK disabled until
-        all boxes are filled.
-    */
-
     document
         .getElementById(
             "checkAnswerBtn"
@@ -959,10 +946,13 @@ function selectLetter(
 
 
     /*
-        If all boxes are already
-        full, do NOTHING.
+        IMPORTANT:
 
-        It will NOT be marked wrong.
+        If all boxes are full,
+        DO NOTHING.
+
+        It does NOT automatically
+        mark the answer wrong.
     */
 
     if (
@@ -1009,10 +999,8 @@ function selectLetter(
 
 
     /*
-        Enable CHECK only when
-        every box is filled.
-
-        No automatic checking.
+        CHECK ANSWER only becomes
+        active when ALL boxes are full.
     */
 
     if (
@@ -1094,17 +1082,19 @@ function clearLetters() {
         true;
 
 
-    const feedback =
-        document.getElementById(
+    document
+        .getElementById(
             "feedback"
-        );
-
-
-    feedback.textContent =
+        )
+        .textContent =
         "";
 
 
-    feedback.className =
+    document
+        .getElementById(
+            "feedback"
+        )
+        .className =
         "feedback";
 
 }
@@ -1126,8 +1116,8 @@ function checkLetterAnswer() {
 
 
     /*
-        Incomplete answer:
-        NOT counted as wrong.
+        Do NOT count incomplete
+        answer as wrong.
     */
 
     if (
@@ -1136,9 +1126,10 @@ function checkLetterAnswer() {
     ) {
 
         const feedback =
-            document.getElementById(
-                "feedback"
-            );
+            document
+                .getElementById(
+                    "feedback"
+                );
 
 
         feedback.textContent =
@@ -1155,8 +1146,7 @@ function checkLetterAnswer() {
 
 
     /*
-        Only CHECK ANSWER will
-        actually evaluate it.
+        NOW the answer is checked.
     */
 
     const userAnswer =
@@ -1230,15 +1220,16 @@ function checkLetterAnswer() {
 
 
 /* =========================================================
-   CORRECT FEEDBACK
+   FEEDBACK
 ========================================================= */
 
 function showCorrectAnswer() {
 
     const feedback =
-        document.getElementById(
-            "feedback"
-        );
+        document
+            .getElementById(
+                "feedback"
+            );
 
 
     feedback.textContent =
@@ -1251,19 +1242,16 @@ function showCorrectAnswer() {
 }
 
 
-/* =========================================================
-   WRONG FEEDBACK
-========================================================= */
-
 function showWrongAnswer(
     correctAnswer,
     customMessage = ""
 ) {
 
     const feedback =
-        document.getElementById(
-            "feedback"
-        );
+        document
+            .getElementById(
+                "feedback"
+            );
 
 
     if (
@@ -1446,12 +1434,8 @@ function tryAgain() {
 
 
     /*
-        If the previous game was
-        6 Pictures, start a completely
-        new 12-picture game.
-
-        The diagrams will be shuffled
-        again.
+        6 Pictures gets a NEW
+        shuffled set of 12.
     */
 
     if (
@@ -1504,18 +1488,15 @@ function startSixPictures() {
 
 
     /*
-        IMPORTANT:
+        Shuffle ALL 14.
 
-        Shuffle all 14 diagrams.
+        Take 12.
 
-        Take 12 only.
+        First 6 = Page 1
+        Next 6 = Page 2
 
-        Page 1 = items 0-5
-        Page 2 = items 6-11
-
-        Because the array is shuffled ONCE,
-        there will be NO duplicates between
-        Page 1 and Page 2.
+        Therefore:
+        NO REPEATED DIAGRAM.
     */
 
     sixQuestions =
@@ -1572,10 +1553,6 @@ function startSixPictures() {
         .textContent =
         "6 Pictures";
 
-
-    /*
-        Page 1 = 50%.
-    */
 
     document
         .getElementById(
@@ -1652,7 +1629,7 @@ function startSixPictures() {
 
 
 /* =========================================================
-   RENDER CURRENT 6-PICTURE PAGE
+   RENDER 6 PICTURES PAGE
 ========================================================= */
 
 function renderSixPage() {
@@ -1669,15 +1646,11 @@ function renderSixPage() {
 
 
     /*
-        PAGE 1:
+        Page 1:
+        index 0 - 5
 
-        startIndex = 0
-        endIndex = 6
-
-        PAGE 2:
-
-        startIndex = 6
-        endIndex = 12
+        Page 2:
+        index 6 - 11
     */
 
     const startIndex =
@@ -1699,16 +1672,8 @@ function renderSixPage() {
         );
 
 
-    /*
-        Reset current page count.
-    */
-
     sixChecked = 0;
 
-
-    /*
-        Update page title.
-    */
 
     document
         .getElementById(
@@ -1726,26 +1691,18 @@ function renderSixPage() {
         `Page ${sixPage} of ${sixTotalPages}`;
 
 
-    /*
-        Update progress.
-    */
-
-    const progress =
-        sixPage === 1
-            ? 50
-            : 100;
-
-
     document
         .getElementById(
             "progressBar"
         )
         .style.width =
-        `${progress}%`;
+        sixPage === 1
+            ? "50%"
+            : "100%";
 
 
     /*
-        Create six cards.
+        Create 6 cards.
     */
 
     sixPageQuestions.forEach(
@@ -1805,10 +1762,6 @@ function renderSixPage() {
     );
 
 
-    /*
-        Reset page buttons.
-    */
-
     document
         .getElementById(
             "sixNextPageBtn"
@@ -1836,7 +1789,7 @@ function renderSixPage() {
 
 
 /* =========================================================
-   CHECK SIX-PICTURE ANSWER
+   CHECK 6 PICTURE ANSWER
 ========================================================= */
 
 function checkSixAnswer(
@@ -1866,15 +1819,16 @@ function checkSixAnswer(
 
 
     /*
-        Normalize user answer.
+        Normalize answer.
 
         Example:
 
-        "composite    structure diagram"
+        composite    structure
+        diagram
 
         becomes:
 
-        "COMPOSITE STRUCTURE DIAGRAM"
+        COMPOSITE STRUCTURE DIAGRAM
     */
 
     const userAnswer =
@@ -1888,11 +1842,7 @@ function checkSixAnswer(
 
 
     /*
-        FULL diagram name.
-
-        NOT question.short.
-
-        Therefore:
+        FULL NAME.
 
         Composite Structure Diagram
         is required.
@@ -1908,8 +1858,7 @@ function checkSixAnswer(
 
 
     /*
-        Empty answer:
-        no penalty.
+        Empty answer is NOT wrong.
     */
 
     if (
@@ -1922,7 +1871,7 @@ function checkSixAnswer(
 
 
     /*
-        Don't check the same card again.
+        Prevent double checking.
     */
 
     if (
@@ -1947,9 +1896,7 @@ function checkSixAnswer(
         true;
 
 
-    /*
-        CORRECT
-    */
+    /* CORRECT */
 
     if (
         userAnswer ===
@@ -1970,9 +1917,7 @@ function checkSixAnswer(
     }
 
 
-    /*
-        WRONG
-    */
+    /* WRONG */
 
     else {
 
@@ -1980,14 +1925,6 @@ function checkSixAnswer(
             "wrong"
         );
 
-
-        /*
-            Show COMPLETE answer.
-
-            Example:
-
-            ✗ Composite Structure Diagram
-        */
 
         button.textContent =
             `✗ ${question.name}`;
@@ -1998,10 +1935,6 @@ function checkSixAnswer(
     sixChecked++;
 
 
-    /*
-        Update total score.
-    */
-
     document
         .getElementById(
             "scoreDisplay"
@@ -2011,8 +1944,7 @@ function checkSixAnswer(
 
 
     /*
-        ALL SIX ON CURRENT PAGE
-        HAVE BEEN ANSWERED.
+        ALL 6 FINISHED
     */
 
     if (
@@ -2021,9 +1953,7 @@ function checkSixAnswer(
     ) {
 
 
-        /* =============================================
-           PAGE 1 FINISHED
-        ============================================== */
+        /* PAGE 1 */
 
         if (
             sixPage === 1
@@ -2049,9 +1979,7 @@ function checkSixAnswer(
         }
 
 
-        /* =============================================
-           PAGE 2 FINISHED
-        ============================================== */
+        /* PAGE 2 */
 
         else {
 
@@ -2080,15 +2008,14 @@ function checkSixAnswer(
 
 
 /* =========================================================
-   NEXT 6-PICTURE PAGE
+   NEXT SIX PICTURES PAGE
 ========================================================= */
 
 function nextSixPage() {
 
     /*
-        Don't allow Page 2 until
-        all 6 Page 1 pictures
-        have been checked.
+        Page 1 must be completely
+        answered first.
     */
 
     if (
@@ -2101,23 +2028,14 @@ function nextSixPage() {
     }
 
 
-    /*
-        Move to Page 2.
-    */
-
     sixPage = 2;
 
 
     /*
-        IMPORTANT:
+        Automatically gets diagrams
+        6 through 11.
 
-        renderSixPage() takes:
-
-        Page 1 = sixQuestions[0..5]
-
-        Page 2 = sixQuestions[6..11]
-
-        So NO diagram repeats.
+        No duplicates.
     */
 
     renderSixPage();
@@ -2168,7 +2086,7 @@ function closeQuizTypes() {
 
 
 /* =========================================================
-   ALL DIAGRAMS
+   VIEW ALL DIAGRAMS
 ========================================================= */
 
 function openDiagrams() {
@@ -2243,7 +2161,7 @@ function closeDiagrams() {
 
 
 /* =========================================================
-   CLOSE MODAL WHEN CLICKING OUTSIDE
+   CLOSE MODALS OUTSIDE CLICK
 ========================================================= */
 
 window.addEventListener(

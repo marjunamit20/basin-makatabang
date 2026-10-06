@@ -1,18 +1,26 @@
+/* =====================================================
+   RESET
+===================================================== */
+
 * {
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
 }
 
 
 html {
     width: 100%;
+
     overflow-x: hidden;
 }
 
 
 body {
     width: 100%;
+
     min-height: 100vh;
 
     font-family:
@@ -21,6 +29,7 @@ body {
         sans-serif;
 
     background: #eef4f8;
+
     color: #123f63;
 
     overflow-x: hidden;
@@ -35,6 +44,7 @@ body {
     width: 100%;
 
     background: #17456d;
+
     color: white;
 
     text-align: center;
@@ -45,25 +55,29 @@ body {
 
 .header h1 {
     font-size: 28px;
+
     line-height: 1.2;
 }
 
 
 .header p {
     font-size: 14px;
+
     margin-top: 4px;
 }
 
 
 /* =====================================================
-   SCREEN
+   SCREENS
 ===================================================== */
 
 .screen {
     display: none;
 
     width: 100%;
-    min-height: calc(100vh - 82px);
+
+    min-height:
+        calc(100vh - 82px);
 
     padding: 24px 16px;
 }
@@ -75,16 +89,17 @@ body {
 
 
 /* =====================================================
-   HOME
+   HOME CARD
 ===================================================== */
 
 .home-card {
     width: 100%;
+
     max-width: 620px;
 
-    margin: 50px auto;
+    margin: 35px auto;
 
-    padding: 45px 35px;
+    padding: 35px 30px;
 
     background: white;
 
@@ -97,6 +112,8 @@ body {
         rgba(23, 69, 109, 0.12);
 
     border: 1px solid #e1ebf0;
+
+    overflow: hidden;
 }
 
 
@@ -106,6 +123,7 @@ body {
 
 .home-cat {
     width: 150px;
+
     height: 150px;
 
     margin: 0 auto 20px;
@@ -113,6 +131,7 @@ body {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     overflow: hidden;
@@ -125,32 +144,30 @@ body {
         0 8px 20px
         rgba(23, 69, 109, 0.15);
 
-    animation:
-        catFloat 2.5s
-        ease-in-out
-        infinite;
+    position: relative;
+
+    flex-shrink: 0;
 }
 
 
 .home-cat img {
-    width: 100%;
-    height: 100%;
+    display: block;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    max-width: 100% !important;
+
+    max-height: 100% !important;
+
+    min-width: 0;
+
+    min-height: 0;
 
     object-fit: cover;
-}
 
-
-@keyframes catFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-
+    border-radius: 50%;
 }
 
 
@@ -163,7 +180,9 @@ body {
 
     color: #17456d;
 
-    margin-bottom: 8px;
+    margin: 0 0 8px;
+
+    line-height: 1.2;
 }
 
 
@@ -172,40 +191,48 @@ body {
 
     font-size: 16px;
 
-    margin-bottom: 25px;
+    margin: 0 0 22px;
+
+    line-height: 1.5;
 }
 
 
 /* =====================================================
-   BUTTONS
+   HOME BUTTONS
 ===================================================== */
-
-button,
-.pdf-btn {
-    font-family: inherit;
-}
-
 
 .main-btn,
 .secondary-btn,
 .pdf-btn {
     width: 100%;
 
-    padding: 14px;
+    max-width: 100%;
+
+    min-height: 50px;
+
+    padding: 13px 15px;
 
     margin-top: 10px;
 
-    border-radius: 7px;
+    border-radius: 8px;
 
-    cursor: pointer;
+    font-size: 15px;
 
     font-weight: bold;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 
     text-align: center;
 
     text-decoration: none;
 
-    display: block;
+    cursor: pointer;
+
+    box-sizing: border-box;
 }
 
 
@@ -235,7 +262,8 @@ button,
 
 
 .main-btn:hover,
-.pdf-btn:hover {
+.pdf-btn:hover,
+.secondary-btn:hover {
     opacity: 0.9;
 }
 
@@ -246,6 +274,7 @@ button,
 
 .quiz-top {
     width: 100%;
+
     max-width: 900px;
 
     margin: 0 auto 8px;
@@ -320,6 +349,7 @@ button,
 
 .progress-container {
     width: 100%;
+
     max-width: 900px;
 
     height: 6px;
@@ -351,6 +381,7 @@ button,
 
 .question-card {
     width: 100%;
+
     max-width: 900px;
 
     margin: auto;
@@ -374,14 +405,8 @@ button,
 }
 
 
-.six-instruction {
-    color: #6c7e8d;
-
-    font-size: 13px;
-
-    margin-bottom: 8px;
-
-    text-align: center;
+.hidden {
+    display: none !important;
 }
 
 
@@ -393,6 +418,7 @@ button,
     width: 100%;
 
     min-height: 250px;
+
     max-height: 470px;
 
     padding: 5px;
@@ -400,6 +426,7 @@ button,
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     background: white;
@@ -416,9 +443,11 @@ button,
     display: block;
 
     width: auto;
+
     height: auto;
 
     max-width: 100%;
+
     max-height: 450px;
 
     object-fit: contain;
@@ -491,15 +520,6 @@ button,
 
 
 /* =====================================================
-   HIDDEN
-===================================================== */
-
-.hidden {
-    display: none !important;
-}
-
-
-/* =====================================================
    ANSWER BOXES
 ===================================================== */
 
@@ -526,11 +546,13 @@ button,
     flex: 0 0 42px;
 
     width: 42px;
+
     height: 48px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     background: white;
@@ -579,6 +601,7 @@ button,
     flex: 0 0 48px;
 
     width: 48px;
+
     height: 44px;
 
     background: #f8fafc;
@@ -757,8 +780,19 @@ button,
 
 
 /* =====================================================
-   SIX PICTURES
+   6 PICTURES
 ===================================================== */
+
+.six-instruction {
+    color: #6c7e8d;
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+
+    text-align: center;
+}
+
 
 .six-page-indicator {
     text-align: center;
@@ -806,6 +840,7 @@ button,
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     overflow: hidden;
@@ -819,6 +854,8 @@ button,
 
 
 .six-image img {
+    display: block;
+
     width: auto;
 
     height: auto;
@@ -1102,7 +1139,7 @@ button,
 
 
 /* =====================================================
-   QUIZ TYPE CARDS
+   QUIZ TYPES
 ===================================================== */
 
 .quiz-type-grid {
@@ -1197,9 +1234,11 @@ button,
     display: block;
 
     width: auto;
+
     height: auto;
 
     max-width: 100%;
+
     max-height: 180px;
 
     margin: auto;
@@ -1277,32 +1316,85 @@ button,
 
 
     .screen {
-        padding: 10px 7px;
+        padding: 10px 8px;
     }
 
+
+    /* HOME */
 
     .home-card {
-        margin: 25px auto;
+        width: 100%;
 
-        padding: 30px 18px;
+        max-width: 100%;
+
+        margin: 15px auto;
+
+        padding: 25px 18px;
+
+        border-radius: 16px;
     }
 
 
+    /*
+       SMALL CAT ON MOBILE
+    */
+
     .home-cat {
-        width: 120px;
-        height: 120px;
+        width: 115px;
+
+        height: 115px;
+
+        margin: 0 auto 18px;
+
+        border-radius: 50%;
+    }
+
+
+    .home-cat img {
+        width: 100% !important;
+
+        height: 100% !important;
+
+        max-width: 100% !important;
+
+        max-height: 100% !important;
+
+        object-fit: cover;
     }
 
 
     .home-card h2 {
-        font-size: 26px;
+        font-size: 25px;
+
+        line-height: 1.2;
     }
 
 
     .home-card p {
         font-size: 14px;
+
+        line-height: 1.4;
+
+        margin-bottom: 18px;
     }
 
+
+    .home-card .main-btn,
+    .home-card .secondary-btn,
+    .home-card .pdf-btn {
+        width: 100%;
+
+        min-height: 48px;
+
+        padding: 12px 10px;
+
+        font-size: 13px;
+
+        margin-top: 8px;
+    }
+
+
+    /* QUIZ */
 
     .quiz-top {
         gap: 5px;
@@ -1347,6 +1439,8 @@ button,
         max-height: 320px;
     }
 
+
+    /* CHOICES */
 
     .choices {
         grid-template-columns:
@@ -1416,8 +1510,7 @@ button,
 
         min-height: 42px;
 
-        padding:
-            9px 12px;
+        padding: 9px 12px;
 
         font-size: 12px;
     }
@@ -1449,16 +1542,14 @@ button,
 
 
     .six-input {
-        padding:
-            8px 3px;
+        padding: 8px 3px;
 
         font-size: 11px;
     }
 
 
     .six-check {
-        padding:
-            7px 3px;
+        padding: 7px 3px;
 
         font-size: 10px;
     }
@@ -1481,8 +1572,7 @@ button,
     .result-card {
         margin: 30px auto;
 
-        padding:
-            35px 18px;
+        padding: 35px 18px;
     }
 
 
@@ -1491,7 +1581,7 @@ button,
     }
 
 
-    /* MODAL */
+    /* MODALS */
 
     .modal {
         padding: 8px;
@@ -1501,8 +1591,7 @@ button,
     .modal-content {
         margin: 15px auto;
 
-        padding:
-            20px 12px;
+        padding: 20px 12px;
     }
 
 
@@ -1517,7 +1606,7 @@ button,
 
 
 /* =====================================================
-   VERY SMALL PHONE
+   VERY SMALL PHONES
 ===================================================== */
 
 @media (max-width: 380px) {
@@ -1534,6 +1623,43 @@ button,
 
     .info-box strong {
         font-size: 14px;
+    }
+
+
+    /* EVEN SMALLER CAT */
+
+    .home-cat {
+        width: 95px;
+
+        height: 95px;
+
+        margin-bottom: 15px;
+    }
+
+
+    .home-card {
+        padding: 22px 14px;
+
+        margin: 10px auto;
+    }
+
+
+    .home-card h2 {
+        font-size: 22px;
+    }
+
+
+    .home-card p {
+        font-size: 13px;
+    }
+
+
+    .home-card .main-btn,
+    .home-card .secondary-btn,
+    .home-card .pdf-btn {
+        min-height: 45px;
+
+        font-size: 12px;
     }
 
 
