@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UML Diagram Quiz</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <h1>UML Diagram Quiz</h1>
+        <p>10-Second Identification Challenge</p>
+    </header>
+
+
+    <!-- ================= START SCREEN ================= -->
+
+    <main id="startScreen" class="screen">
+
+        <div class="card start-card">
+
+            <h2>Laboratory Exam Practice</h2>
+
+            <p class="description">
+                Identify the UML diagram shown on the screen.
+                You only have 10 seconds for each question.
+            </p>
+
+            <div class="quiz-info">
+
+                <p><strong>14</strong> UML Diagram Types</p>
+
+                <p><strong>30</strong> Questions</p>
+
+                <p><strong>1 Point</strong> Each</p>
+
+            </div>
+
+            <button id="startBtn" class="start-btn">
+                START QUIZ
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= QUIZ SCREEN ================= -->
+
+    <main id="quizScreen" class="screen hidden">
+
+        <div class="quiz-container">
+
+            <!-- TOP INFO -->
+
+            <div class="quiz-info-bar">
+
+                <div class="info-card">
+                    <span>QUESTION</span>
+                    <strong id="questionNumber">1 / 30</strong>
+                </div>
+
+                <div class="info-card">
+                    <span>SCORE</span>
+                    <strong id="score">0</strong>
+                </div>
+
+                <div class="info-card">
+                    <span>TIME</span>
+                    <strong id="timer">10</strong>
+                </div>
+
+            </div>
+
+
+            <!-- TIMER -->
+
+            <div class="timer-container">
+                <div id="timerBar" class="timer-bar"></div>
+            </div>
+
+
+            <!-- QUESTION -->
+
+            <div class="card question-card">
+
+                <!-- DIAGRAM -->
+
+                <div
+                    id="diagramContainer"
+                    class="diagram-container">
+                </div>
+
+
+                <!-- QUESTION TEXT -->
+
+                <h2 class="question-text">
+                    What type of UML diagram is this?
+                </h2>
+
+
+                <!-- ANSWERS -->
+
+                <div
+                    id="answers"
+                    class="answers">
+                </div>
+
+
+                <!-- FEEDBACK -->
+
+                <div
+                    id="feedback"
+                    class="feedback hidden">
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="action-buttons">
+
+                    <button
+                        id="nextBtn"
+                        class="next-btn hidden">
+                        NEXT
+                    </button>
+
+                    <button
+                        id="restartQuizBtn"
+                        class="restart-btn">
+                        RESTART
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= RESULT SCREEN ================= -->
+
+    <main id="resultScreen" class="screen hidden">
+
+        <div class="card result-card">
+
+            <h2>Quiz Complete!</h2>
+
+            <p>Your Final Score</p>
+
+            <div
+                id="finalScore"
+                class="final-score">
+                0 / 30
+            </div>
+
+            <div
+                id="percentage"
+                class="percentage">
+                0%
+            </div>
+
+            <p
+                id="resultMessage"
+                class="result-message">
+                Keep practicing!
+            </p>
+
+            <button
+                id="restartBtn"
+                class="start-btn">
+                TRY AGAIN
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
