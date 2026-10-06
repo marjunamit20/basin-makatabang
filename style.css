@@ -1,353 +1,1382 @@
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #eef3f8;
-    color: #0f2747;
-    min-height: 100vh;
+
+html {
+    width: 100%;
     overflow-x: hidden;
 }
 
-/* ================= HEADER ================= */
 
-.header {
-    background: #173f67;
-    color: white;
-    text-align: center;
-    padding: 12px 10px;
-}
+body {
 
-.header h1 {
-    font-size: 20px;
-    margin-bottom: 2px;
-}
-
-.header p {
-    font-size: 10px;
-}
-
-/* ================= GENERAL ================= */
-
-.screen {
     width: 100%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 16px;
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #eef4f8;
+
+    color: #123f63;
+
+    overflow-x: hidden;
 }
 
-.hidden {
-    display: none !important;
-}
-
-.card {
-    background: white;
-    border-radius: 9px;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
-}
-
-/* ================= START SCREEN ================= */
-
-.start-card {
-    max-width: 690px;
-    margin: 15px auto;
-    padding: 30px;
-    text-align: center;
-}
-
-.start-card h2 {
-    font-size: 21px;
-    margin-bottom: 12px;
-}
-
-.description {
-    font-size: 11px;
-    color: #555;
-    margin-bottom: 15px;
-    line-height: 1.5;
-}
-
-.quiz-info {
-    margin-bottom: 20px;
-}
-
-.quiz-info p {
-    font-size: 11px;
-    margin: 8px 0;
-    color: #555;
-}
-
-.quiz-info strong {
-    color: #173f67;
-}
-
-.start-btn {
-    border: none;
-    background: #23879a;
-    color: white;
-    padding: 10px 24px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.start-btn:hover {
-    background: #1c7181;
-}
-
-/* ================= QUIZ ================= */
-
-.quiz-container {
-    max-width: 690px;
-    margin: auto;
-}
-
-/* ================= TOP INFO ================= */
-
-.quiz-info-bar {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-    margin-bottom: 10px;
-}
-
-.info-card {
-    background: white;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
-}
-
-.info-card span {
-    display: block;
-    font-size: 8px;
-    color: #52708d;
-    margin-bottom: 3px;
-}
-
-.info-card strong {
-    display: block;
-    font-size: 16px;
-    color: #0f2747;
-}
-
-.info-card:last-child strong {
-    color: #e00000;
-}
-
-/* ================= TIMER ================= */
-
-.timer-container {
-    width: 100%;
-    height: 5px;
-    background: #d8e1ea;
-    border-radius: 10px;
-    margin-bottom: 8px;
-    overflow: hidden;
-}
-
-.timer-bar {
-    width: 100%;
-    height: 100%;
-    background: #23879a;
-    transition: width 1s linear;
-}
-
-/* ================= QUESTION CARD ================= */
-
-.question-card {
-    padding: 13px;
-}
 
 /* =====================================================
-   IMPORTANT DIAGRAM FIX
+   HEADER
 ===================================================== */
 
-.diagram-container {
+.header {
+
     width: 100%;
 
-    /*
-       Desktop keeps the original comfortable size.
-    */
-    height: 310px;
+    background: #17456d;
 
-    border: 1px solid #b9cde0;
-    border-radius: 6px;
+    color: white;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+
+    padding:
+        18px 12px;
+
+}
+
+
+.header h1 {
+
+    font-size: 28px;
+
+    line-height: 1.2;
+
+}
+
+
+.header p {
+
+    font-size: 14px;
+
+    margin-top: 3px;
+
+}
+
+
+/* =====================================================
+   SCREEN
+===================================================== */
+
+.screen {
+
+    display: none;
+
+    width: 100%;
+
+    min-height:
+        calc(100vh - 82px);
+
+    padding:
+        24px 16px;
+
+}
+
+
+.screen.active {
+
+    display: block;
+
+}
+
+
+/* =====================================================
+   HOME
+===================================================== */
+
+.home-card {
+
+    width: 100%;
+
+    max-width: 620px;
+
+    margin:
+        50px auto;
+
+    padding:
+        45px 35px;
 
     background: white;
 
-    overflow: hidden;
+    border-radius: 15px;
 
-    margin-bottom: 9px;
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.08);
+
 }
 
-/*
-   DO NOT stretch the UML diagram.
 
-   The SVG keeps its original proportions.
-*/
+.home-icon {
 
-.diagram-container svg {
-    display: block;
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.home-card h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.home-card p {
+
+    color: #5c7184;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button,
+.pdf-btn {
+
+    font-family: inherit;
+
+}
+
+
+.main-btn,
+.secondary-btn,
+.pdf-btn {
 
     width: 100%;
+
+    padding: 14px;
+
+    margin-top: 10px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    display: block;
+
+}
+
+
+.main-btn {
+
+    background: #278da1;
+
+    color: white;
+
+    border: none;
+
+}
+
+
+.secondary-btn {
+
+    background: #e9f0f5;
+
+    color: #123f63;
+
+    border:
+        1px solid #c6d5df;
+
+}
+
+
+.pdf-btn {
+
+    background: #17456d;
+
+    color: white;
+
+}
+
+
+.main-btn:hover,
+.pdf-btn:hover {
+
+    opacity: .9;
+
+}
+
+
+/* =====================================================
+   QUIZ TOP
+===================================================== */
+
+.quiz-top {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin:
+        0 auto 8px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+}
+
+
+.info-box {
+
+    background: white;
+
+    border-radius: 10px;
+
+    padding:
+        10px 6px;
+
+    text-align: center;
+
+    box-shadow:
+        0 3px 10px
+        rgba(0,0,0,0.05);
+
+}
+
+
+.info-box span {
+
+    display: block;
+
+    font-size: 10px;
+
+    color: #4c7188;
+
+    margin-bottom: 3px;
+
+}
+
+
+.info-box strong {
+
+    display: block;
+
+    font-size: 20px;
+
+}
+
+
+#timerDisplay {
+
+    color: red;
+
+}
+
+
+/* =====================================================
+   MODE
+===================================================== */
+
+.mode-label {
+
+    text-align: center;
+
+    color: #23899d;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin:
+        8px 0;
+
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-container {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    height: 6px;
+
+    margin:
+        0 auto 14px;
+
+    background: #d8e2e8;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+
+.progress-bar {
+
     height: 100%;
 
+    width: 0;
+
+    background: #23899d;
+
+    transition:
+        width .3s ease;
+
+}
+
+
+/* =====================================================
+   QUESTION CARD
+===================================================== */
+
+.question-card {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 16px;
+
+    background: white;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(0,0,0,0.06);
+
+}
+
+
+.question-card h3 {
+
+    font-size: 17px;
+
+    margin-bottom: 12px;
+
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.single-image {
+
+    width: 100%;
+
+    min-height: 250px;
+
+    max-height: 470px;
+
+    padding: 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: white;
+
+    border:
+        1px solid #bdcfda;
+
+    border-radius: 9px;
+
+    overflow: hidden;
+
+}
+
+
+.single-image img {
+
+    display: block;
+
+    width: auto;
+
+    height: auto;
+
     max-width: 100%;
-    max-height: 100%;
 
-    /*
-       This is the important part.
-       It prevents the UML drawing from being
-       distorted when the screen becomes smaller.
-    */
-    preserveAspectRatio: xMidYMid meet;
+    max-height: 450px;
+
+    object-fit: contain;
+
 }
 
-/* ================= QUESTION ================= */
 
-.question-text {
-    font-size: 13px;
-    margin-bottom: 8px;
-    color: #0f2747;
-}
+/* =====================================================
+   CHOICES
+===================================================== */
 
-/* ================= ANSWERS ================= */
+.choices {
 
-.answers {
+    width: 100%;
+
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
+
+    margin-top: 15px;
+
 }
 
-.answer-btn {
-    background: #e9f2f8;
-    border: 1px solid #b8d0e2;
+
+.choice-btn {
+
+    min-height: 55px;
+
+    padding: 10px;
+
+    border:
+        1px solid #c4d3dd;
+
+    background: #f7fafc;
+
+    color: #123f63;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+.choice-btn.correct {
+
+    background: #d8f4df;
+
+    border-color: #28a745;
+
+    color: #168131;
+
+}
+
+
+.choice-btn.wrong {
+
+    background: #ffe0e0;
+
+    border-color: #dc3545;
+
+    color: #c82333;
+
+}
+
+
+.choice-btn:disabled {
+
+    cursor: default;
+
+}
+
+
+/* =====================================================
+   HIDDEN
+===================================================== */
+
+.hidden {
+
+    display: none !important;
+
+}
+
+
+/* =====================================================
+   ANSWER BOXES
+===================================================== */
+
+.answer-boxes {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin:
+        20px auto;
+
+    min-height: 52px;
+
+}
+
+
+.answer-box {
+
+    flex:
+        0 0 42px;
+
+    width: 42px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: white;
+
+    border:
+        2px solid #9eb5c5;
+
     border-radius: 6px;
 
-    padding: 8px;
-    min-height: 29px;
+    color: #17456d;
 
-    color: #173f67;
-    font-size: 10px;
+    font-size: 22px;
+
+    font-weight: bold;
+
+}
+
+
+.answer-box.filled {
+
+    background: #f2fafc;
+
+    border-color: #23899d;
+
+}
+
+
+/* =====================================================
+   LETTER BUTTONS
+===================================================== */
+
+.letter-buttons {
+
+    width: 100%;
+
+    max-width: 750px;
+
+    margin:
+        10px auto;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 7px;
+
+}
+
+
+.letter-btn {
+
+    flex:
+        0 0 48px;
+
+    width: 48px;
+
+    height: 44px;
+
+    background: #f8fafc;
+
+    border:
+        1px solid #c7d5de;
+
+    border-radius: 7px;
+
+    color: #123f63;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+}
+
+
+.letter-btn:hover:not(:disabled) {
+
+    background: #e8f2f6;
+
+}
+
+
+.letter-btn.used {
+
+    opacity: .35;
+
+    cursor: default;
+
+}
+
+
+/* =====================================================
+   LETTER ACTIONS
+===================================================== */
+
+.letter-actions {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 16px;
+
+}
+
+
+.clear-btn,
+.check-btn {
+
+    min-width: 125px;
+
+    min-height: 44px;
+
+    padding:
+        10px 18px;
+
+    border-radius: 7px;
+
     font-weight: bold;
 
     cursor: pointer;
-    text-align: left;
 
-    transition: 0.15s;
 }
 
-.answer-btn:hover {
-    background: #dcecf7;
+
+.clear-btn {
+
+    background: white;
+
+    border:
+        1px solid #b8cbd7;
+
+    color: #17456d;
+
 }
 
-.answer-btn.correct {
-    background: #d7f5dc;
-    border-color: #36a84a;
-    color: #176b28;
+
+.check-btn {
+
+    background: #17456d;
+
+    color: white;
+
+    border: none;
+
 }
 
-.answer-btn.wrong {
-    background: #ffdede;
-    border-color: #dc3030;
-    color: #a40000;
+
+/*
+    CHECK BUTTON IS DISABLED ONLY
+    UNTIL ALL BOXES ARE FILLED.
+*/
+
+.check-btn:disabled {
+
+    background: #9cafbd;
+
+    color: white;
+
+    opacity: .8;
+
+    cursor: not-allowed;
+
 }
 
-.answer-btn:disabled {
-    cursor: default;
-}
 
-/* ================= FEEDBACK ================= */
+/* =====================================================
+   FEEDBACK
+===================================================== */
 
 .feedback {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin:
+        12px auto;
+
     text-align: center;
-    margin-top: 10px;
-    font-size: 10px;
+
     font-weight: bold;
+
+    min-height: 24px;
+
 }
 
-.feedback.correct-feedback {
-    color: #16852d;
+
+.feedback.correct {
+
+    color: #159447;
+
 }
 
-.feedback.wrong-feedback {
-    color: #b00000;
+
+.feedback.wrong {
+
+    color: #e00000;
+
 }
 
-/* ================= BUTTONS ================= */
 
-.action-buttons {
+/* =====================================================
+   QUIZ ACTIONS
+===================================================== */
+
+.quiz-actions {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin:
+        10px auto;
+
     display: flex;
+
     justify-content: center;
-    gap: 6px;
-    margin-top: 10px;
+
+    gap: 10px;
+
 }
+
 
 .next-btn,
-.restart-btn {
+.home-btn {
+
+    padding:
+        11px 22px;
+
+    border-radius: 7px;
+
     border: none;
-    border-radius: 5px;
-    padding: 7px 12px;
-    font-size: 9px;
-    font-weight: bold;
-    color: white;
+
     cursor: pointer;
+
+    font-weight: bold;
+
 }
+
 
 .next-btn {
-    background: #0f4779;
+
+    background: #17456d;
+
+    color: white;
+
 }
 
-.restart-btn {
-    background: #66829b;
+
+.home-btn {
+
+    background: #71869a;
+
+    color: white;
+
 }
 
-/* ================= RESULT ================= */
+
+/* =====================================================
+   SIX PICTURES
+===================================================== */
+
+.six-grid {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.six-card {
+
+    min-width: 0;
+
+    padding: 8px;
+
+    background: #fafcfd;
+
+    border:
+        1px solid #cad8e0;
+
+    border-radius: 9px;
+
+}
+
+
+.six-image {
+
+    width: 100%;
+
+    height: 180px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: white;
+
+    border:
+        1px solid #d0dce3;
+
+    border-radius: 6px;
+
+}
+
+
+.six-image img {
+
+    width: auto;
+
+    height: auto;
+
+    max-width: 100%;
+
+    max-height: 170px;
+
+    object-fit: contain;
+
+}
+
+
+.six-input {
+
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 9px;
+
+    margin-top: 8px;
+
+    border:
+        1px solid #bccdd8;
+
+    border-radius: 6px;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+}
+
+
+.six-check {
+
+    width: 100%;
+
+    padding: 8px;
+
+    margin-top: 6px;
+
+    background: #17456d;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+}
+
+
+.six-check:disabled {
+
+    opacity: .85;
+
+    cursor: default;
+
+}
+
+
+.six-card.correct {
+
+    border:
+        2px solid #22a447;
+
+}
+
+
+.six-card.wrong {
+
+    border:
+        2px solid #df3030;
+
+}
+
+
+.six-result {
+
+    text-align: center;
+
+    font-weight: bold;
+
+    margin-top: 15px;
+
+}
+
+
+/* =====================================================
+   RESULT
+===================================================== */
 
 .result-card {
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 35px;
+
+    width: 100%;
+
+    max-width: 625px;
+
+    margin:
+        50px auto;
+
+    padding:
+        45px 25px;
+
+    background: white;
+
+    border-radius: 14px;
+
     text-align: center;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.08);
+
 }
+
+
+.result-icon {
+
+    font-size: 48px;
+
+}
+
 
 .result-card h2 {
-    font-size: 25px;
-    margin-bottom: 10px;
+
+    font-size: 30px;
+
+    margin:
+        10px 0;
+
 }
 
-.result-card p {
-    font-size: 13px;
-    color: #666;
+
+.result-label {
+
+    color: #687b8c;
+
 }
+
 
 .final-score {
-    font-size: 50px;
+
+    font-size: 62px;
+
     font-weight: bold;
-    margin: 15px 0 5px;
-    color: #173f67;
+
+    color: #17456d;
+
+    margin: 10px 0;
+
 }
+
 
 .percentage {
-    font-size: 23px;
+
+    font-size: 28px;
+
     font-weight: bold;
-    color: #23879a;
-    margin-bottom: 15px;
+
+    color: #23899d;
+
 }
 
+
 .result-message {
-    margin-bottom: 20px;
+
+    margin:
+        15px 0 20px;
+
+    color: #5b6d7c;
+
 }
+
+
+.try-again-btn,
+.back-home-btn {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+.try-again-btn {
+
+    background: #278da1;
+
+    color: white;
+
+    border: none;
+
+}
+
+
+.back-home-btn {
+
+    background: #edf3f7;
+
+    color: #123f63;
+
+    border:
+        1px solid #c4d4df;
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    padding:
+        20px;
+
+    overflow-y: auto;
+
+    background:
+        rgba(0,0,0,.65);
+
+}
+
+
+.modal.show {
+
+    display: block;
+
+}
+
+
+.modal-content {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin:
+        30px auto;
+
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 14px;
+
+}
+
+
+.large-modal {
+
+    max-width: 1100px;
+
+}
+
+
+.close-btn {
+
+    position: absolute;
+
+    top: 8px;
+
+    right: 14px;
+
+    border: none;
+
+    background: none;
+
+    color: #17456d;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   QUIZ TYPE
+===================================================== */
+
+.quiz-type-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+}
+
+
+.quiz-type-card {
+
+    padding: 20px;
+
+    border:
+        1px solid #ccd9e1;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+}
+
+
+.quiz-type-icon {
+
+    font-size: 38px;
+
+}
+
+
+.quiz-type-card h3 {
+
+    margin:
+        10px 0;
+
+}
+
+
+.quiz-type-card p {
+
+    min-height: 55px;
+
+    color: #667886;
+
+    font-size: 14px;
+
+}
+
+
+.quiz-type-card button {
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin-top: 12px;
+
+    background: #17456d;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.diagram-gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+}
+
+
+.diagram-card {
+
+    padding: 8px;
+
+    background: #fafcfd;
+
+    border:
+        1px solid #ccd9e1;
+
+    border-radius: 9px;
+
+}
+
+
+.diagram-card img {
+
+    display: block;
+
+    width: auto;
+
+    height: auto;
+
+    max-width: 100%;
+
+    max-height: 180px;
+
+    margin: auto;
+
+    object-fit: contain;
+
+}
+
+
+.diagram-card h4 {
+
+    margin-top: 8px;
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 800px) {
+
+    .screen {
+
+        padding:
+            16px 10px;
+
+    }
+
+
+    .quiz-type-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .diagram-gallery {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .six-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .single-image {
+
+        max-height: 400px;
+
+    }
+
+
+    .single-image img {
+
+        max-height: 380px;
+
+    }
+
+}
+
 
 /* =====================================================
    MOBILE
@@ -356,174 +1385,397 @@ body {
 @media (max-width: 600px) {
 
     .header {
-        padding: 11px 8px;
+
+        padding:
+            14px 8px;
+
     }
+
 
     .header h1 {
-        font-size: 18px;
+
+        font-size: 21px;
+
     }
+
 
     .header p {
-        font-size: 9px;
+
+        font-size: 12px;
+
     }
+
 
     .screen {
-        padding: 10px 8px;
+
+        padding:
+            10px 7px;
+
     }
 
-    /* START SCREEN */
 
-    .start-card {
-        margin: 5px auto;
-        padding: 25px 15px;
+    .home-card {
+
+        margin:
+            25px auto;
+
+        padding:
+            30px 18px;
+
     }
 
-    .start-card h2 {
-        font-size: 19px;
+
+    .home-card h2 {
+
+        font-size: 25px;
+
     }
 
-    .description {
-        font-size: 10px;
-    }
 
-    /* TOP INFO */
+    .quiz-top {
 
-    .quiz-info-bar {
         gap: 5px;
+
     }
 
-    .info-card {
-        padding: 8px 5px;
+
+    .info-box {
+
+        padding:
+            8px 3px;
+
     }
 
-    .info-card span {
-        font-size: 7px;
+
+    .info-box span {
+
+        font-size: 8px;
+
     }
 
-    .info-card strong {
-        font-size: 15px;
+
+    .info-box strong {
+
+        font-size: 16px;
+
     }
 
-    /* QUESTION */
 
     .question-card {
-        padding: 8px;
+
+        padding:
+            10px;
+
+        border-radius: 10px;
+
     }
 
-    /*
-       IMPORTANT:
 
-       We do NOT squeeze the SVG manually.
+    .question-card h3 {
 
-       The diagram keeps its original aspect ratio.
-    */
+        font-size: 15px;
 
-    .diagram-container {
-        width: 100%;
-
-        /*
-           Automatically follows phone width.
-        */
-        height: auto;
-
-        /*
-           700 / 430 = approximately 1.63
-        */
-        aspect-ratio: 700 / 430;
-
-        min-height: 0;
-
-        margin-bottom: 8px;
     }
 
-    .diagram-container svg {
-        width: 100%;
-        height: 100%;
 
-        max-width: 100%;
-        max-height: 100%;
+    .single-image {
 
-        display: block;
+        min-height: 190px;
+
+        max-height: 340px;
+
     }
 
-    /* QUESTION */
 
-    .question-text {
+    .single-image img {
+
+        max-height: 320px;
+
+    }
+
+
+    .choices {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 7px;
+
+    }
+
+
+    .choice-btn {
+
+        min-height: 50px;
+
         font-size: 12px;
-        margin-bottom: 7px;
+
+        padding: 7px 4px;
+
     }
 
-    /* ANSWERS */
 
-    .answers {
-        grid-template-columns: 1fr 1fr;
-        gap: 6px;
+    /* LETTER BOXES */
+
+    .answer-boxes {
+
+        gap: 5px;
+
+        margin:
+            15px auto;
+
     }
 
-    .answer-btn {
-        min-height: 38px;
-        padding: 7px 6px;
-        font-size: 9px;
+
+    .answer-box {
+
+        flex-basis: 36px;
+
+        width: 36px;
+
+        height: 42px;
+
+        font-size: 18px;
+
     }
 
-    /* FEEDBACK */
 
-    .feedback {
-        font-size: 9px;
-        margin-top: 8px;
+    /* LETTER BUTTONS */
+
+    .letter-buttons {
+
+        gap: 5px;
+
     }
 
-    /* BUTTONS */
 
-    .action-buttons {
-        margin-top: 8px;
+    .letter-btn {
+
+        flex-basis: 40px;
+
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 14px;
+
     }
 
-    .next-btn,
-    .restart-btn {
-        padding: 7px 11px;
-        font-size: 9px;
+
+    .letter-actions {
+
+        gap: 7px;
+
     }
+
+
+    .clear-btn,
+    .check-btn {
+
+        min-width:
+            120px;
+
+        min-height:
+            42px;
+
+        padding:
+            9px 12px;
+
+        font-size: 12px;
+
+    }
+
+
+    /* SIX PICTURES */
+
+    .six-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 7px;
+
+    }
+
+
+    .six-card {
+
+        padding: 5px;
+
+    }
+
+
+    .six-image {
+
+        height: 125px;
+
+    }
+
+
+    .six-image img {
+
+        max-height: 115px;
+
+    }
+
+
+    .six-input {
+
+        padding: 7px 3px;
+
+        font-size: 12px;
+
+    }
+
+
+    .six-check {
+
+        padding: 7px 3px;
+
+        font-size: 11px;
+
+    }
+
 
     /* RESULT */
 
     .result-card {
-        margin: 25px auto;
-        padding: 30px 18px;
+
+        margin:
+            30px auto;
+
+        padding:
+            35px 18px;
+
     }
 
-    .result-card h2 {
-        font-size: 22px;
-    }
 
     .final-score {
-        font-size: 43px;
+
+        font-size: 48px;
+
     }
 
-    .percentage {
-        font-size: 21px;
+
+    /* MODAL */
+
+    .modal {
+
+        padding:
+            8px;
+
     }
+
+
+    .modal-content {
+
+        margin:
+            15px auto;
+
+        padding:
+            20px 12px;
+
+    }
+
+
+    .diagram-gallery {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 7px;
+
+    }
+
 }
 
+
 /* =====================================================
-   VERY SMALL PHONES
+   VERY SMALL MOBILE
 ===================================================== */
 
 @media (max-width: 380px) {
 
-    .diagram-container {
-        /*
-           Still preserves the original 700:430 ratio.
-        */
-        aspect-ratio: 700 / 430;
+    .header h1 {
+
+        font-size: 19px;
+
     }
 
-    .answer-btn {
-        font-size: 8px;
-        padding: 6px 4px;
+
+    .quiz-top {
+
+        gap: 3px;
+
     }
 
-    .question-text {
-        font-size: 11px;
+
+    .info-box strong {
+
+        font-size: 14px;
+
     }
+
+
+    .single-image {
+
+        min-height: 170px;
+
+    }
+
+
+    .single-image img {
+
+        max-height: 290px;
+
+    }
+
+
+    .answer-box {
+
+        flex-basis: 32px;
+
+        width: 32px;
+
+        height: 38px;
+
+        font-size: 16px;
+
+    }
+
+
+    .letter-btn {
+
+        flex-basis: 36px;
+
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 13px;
+
+    }
+
+
+    .six-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .six-image {
+
+        height: 180px;
+
+    }
+
+
+    .six-image img {
+
+        max-height: 165px;
+
+    }
+
 }

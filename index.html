@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>UML Diagram Quiz</title>
 
@@ -11,180 +14,592 @@
 
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <h1>UML Diagram Quiz</h1>
-        <p>10-Second Identification Challenge</p>
-    </header>
+<header class="header">
+
+    <h1>UML Diagram Quiz</h1>
+
+    <p>UML Laboratory Exam Practice</p>
+
+</header>
 
 
-    <!-- ================= START SCREEN ================= -->
+<main>
 
-    <main id="startScreen" class="screen">
 
-        <div class="card start-card">
+    <!-- =====================================================
+         HOME
+    ====================================================== -->
 
-            <h2>Laboratory Exam Practice</h2>
+    <section
+        id="homeScreen"
+        class="screen active">
 
-            <p class="description">
-                Identify the UML diagram shown on the screen.
-                You only have 10 seconds for each question.
+        <div class="home-card">
+
+            <div class="home-icon">
+                🎉
+            </div>
+
+            <h2>
+                UML Diagram Quiz
+            </h2>
+
+            <p>
+                Practice identifying the 14 UML diagrams.
             </p>
 
-            <div class="quiz-info">
 
-                <p><strong>14</strong> UML Diagram Types</p>
 
-                <p><strong>30</strong> Questions</p>
 
-                <p><strong>1 Point</strong> Each</p>
+            <button
+                class="secondary-btn"
+                onclick="openQuizTypes()">
 
-            </div>
-
-            <button id="startBtn" class="start-btn">
                 START QUIZ
+
             </button>
 
-        </div>
 
-    </main>
+            <button
+                class="secondary-btn"
+                onclick="openDiagrams()">
 
+                VIEW ALL DIAGRAMS
 
-    <!-- ================= QUIZ SCREEN ================= -->
-
-    <main id="quizScreen" class="screen hidden">
-
-        <div class="quiz-container">
-
-            <!-- TOP INFO -->
-
-            <div class="quiz-info-bar">
-
-                <div class="info-card">
-                    <span>QUESTION</span>
-                    <strong id="questionNumber">1 / 30</strong>
-                </div>
-
-                <div class="info-card">
-                    <span>SCORE</span>
-                    <strong id="score">0</strong>
-                </div>
-
-                <div class="info-card">
-                    <span>TIME</span>
-                    <strong id="timer">10</strong>
-                </div>
-
-            </div>
+            </button>
 
 
-            <!-- TIMER -->
+            <a
+                href="UML DIAGRAM - basin makatabang.pdf"
+                target="_blank"
+                class="pdf-btn">
 
-            <div class="timer-container">
-                <div id="timerBar" class="timer-bar"></div>
-            </div>
+                📄 VIEW REVIEWER PDF
 
-
-            <!-- QUESTION -->
-
-            <div class="card question-card">
-
-                <!-- DIAGRAM -->
-
-                <div
-                    id="diagramContainer"
-                    class="diagram-container">
-                </div>
-
-
-                <!-- QUESTION TEXT -->
-
-                <h2 class="question-text">
-                    What type of UML diagram is this?
-                </h2>
-
-
-                <!-- ANSWERS -->
-
-                <div
-                    id="answers"
-                    class="answers">
-                </div>
-
-
-                <!-- FEEDBACK -->
-
-                <div
-                    id="feedback"
-                    class="feedback hidden">
-                </div>
-
-
-                <!-- BUTTONS -->
-
-                <div class="action-buttons">
-
-                    <button
-                        id="nextBtn"
-                        class="next-btn hidden">
-                        NEXT
-                    </button>
-
-                    <button
-                        id="restartQuizBtn"
-                        class="restart-btn">
-                        RESTART
-                    </button>
-
-                </div>
-
-            </div>
+            </a>
 
         </div>
 
-    </main>
+    </section>
 
 
-    <!-- ================= RESULT SCREEN ================= -->
 
-    <main id="resultScreen" class="screen hidden">
+    <!-- =====================================================
+         QUIZ SCREEN
+    ====================================================== -->
 
-        <div class="card result-card">
+    <section
+        id="quizScreen"
+        class="screen">
 
-            <h2>Quiz Complete!</h2>
 
-            <p>Your Final Score</p>
+        <!-- TOP INFO -->
+
+        <div class="quiz-top">
+
+
+            <div class="info-box">
+
+                <span>
+                    QUESTION
+                </span>
+
+                <strong id="questionNumber">
+                    1 / 14
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    SCORE
+                </span>
+
+                <strong id="scoreDisplay">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <span>
+                    TIME
+                </span>
+
+                <strong id="timerDisplay">
+                    10
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- MODE -->
+
+        <div
+            id="modeLabel"
+            class="mode-label">
+
+            Identification
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-container">
+
+            <div
+                id="progressBar"
+                class="progress-bar">
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             NORMAL QUIZ
+        ================================================== -->
+
+        <div
+            id="normalQuestion"
+            class="question-card">
+
+
+            <h3 id="questionText">
+                Identify the UML diagram.
+            </h3>
+
+
+            <div class="single-image">
+
+                <img
+                    id="questionImage"
+                    src=""
+                    alt="UML Diagram">
+
+            </div>
+
+
+            <div
+                id="choicesContainer"
+                class="choices">
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             PICTURE + LETTERS
+        ================================================== -->
+
+        <div
+            id="letterQuestion"
+            class="question-card hidden">
+
+
+            <h3>
+                Complete the UML diagram name.
+            </h3>
+
+
+            <!-- IMAGE -->
+
+            <div class="single-image letter-picture">
+
+                <img
+                    id="letterImage"
+                    src=""
+                    alt="UML Diagram">
+
+            </div>
+
+
+            <!-- ANSWER BOXES -->
+
+            <div
+                id="answerBoxes"
+                class="answer-boxes">
+
+            </div>
+
+
+            <!-- LETTER BUTTONS -->
+
+            <div
+                id="letterButtons"
+                class="letter-buttons">
+
+            </div>
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="letter-actions">
+
+
+                <button
+                    id="clearLettersBtn"
+                    class="clear-btn"
+                    onclick="clearLetters()">
+
+                    CLEAR
+
+                </button>
+
+
+                <button
+                    id="checkAnswerBtn"
+                    class="check-btn"
+                    onclick="checkLetterAnswer()"
+                    disabled>
+
+                    CHECK ANSWER
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             SIX PICTURES
+        ================================================== -->
+
+        <div
+            id="sixQuestion"
+            class="question-card hidden">
+
+
+            <h3>
+                Identify each UML diagram.
+            </h3>
+
+
+            <div
+                id="sixPicturesContainer"
+                class="six-grid">
+
+            </div>
+
+
+            <div
+                id="sixResultMessage"
+                class="six-result">
+
+            </div>
+
+
+            <button
+                id="sixNextBtn"
+                class="next-btn hidden"
+                onclick="finishSixPictures()">
+
+                VIEW RESULT
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- FEEDBACK -->
+
+        <div
+            id="feedback"
+            class="feedback">
+
+        </div>
+
+
+
+        <!-- ACTIONS -->
+
+        <div class="quiz-actions">
+
+
+            <button
+                id="nextBtn"
+                class="next-btn hidden"
+                onclick="nextQuestion()">
+
+                NEXT
+
+            </button>
+
+
+            <button
+                class="home-btn"
+                onclick="goHome()">
+
+                HOME
+
+            </button>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RESULT
+    ====================================================== -->
+
+    <section
+        id="resultScreen"
+        class="screen">
+
+
+        <div class="result-card">
+
+
+            <div class="result-icon">
+                🎉
+            </div>
+
+
+            <h2>
+                Quiz Complete!
+            </h2>
+
+
+            <p class="result-label">
+                Your score
+            </p>
+
 
             <div
                 id="finalScore"
                 class="final-score">
-                0 / 30
+
+                0 / 14
+
             </div>
 
+
             <div
-                id="percentage"
+                id="finalPercentage"
                 class="percentage">
+
                 0%
+
             </div>
+
 
             <p
                 id="resultMessage"
                 class="result-message">
+
                 Keep practicing!
+
             </p>
 
+
             <button
-                id="restartBtn"
-                class="start-btn">
+                class="try-again-btn"
+                onclick="tryAgain()">
+
                 TRY AGAIN
+
             </button>
+
+
+            <button
+                class="back-home-btn"
+                onclick="goHome()">
+
+                BACK TO HOME
+
+            </button>
+
 
         </div>
 
-    </main>
+    </section>
+
+</main>
 
 
-    <script src="script.js"></script>
+
+<!-- =========================================================
+     DIFFERENT QUIZ TYPES
+========================================================== -->
+
+<div
+    id="quizTypesModal"
+    class="modal">
+
+
+    <div class="modal-content">
+
+
+        <button
+            class="close-btn"
+            onclick="closeQuizTypes()">
+
+            ×
+
+        </button>
+
+
+        <h2>
+            Different Quiz Types
+        </h2>
+
+
+        <div class="quiz-type-grid">
+
+
+            <!-- SIX PICTURES -->
+
+            <div class="quiz-type-card">
+
+                <div class="quiz-type-icon">
+                    🖼️
+                </div>
+
+                <h3>
+                    6 Pictures
+                </h3>
+
+                <p>
+                    Six pictures. Each picture has
+                    its own answer.
+                </p>
+
+                <button
+                    onclick="startSixPictures()">
+
+                    PLAY
+
+                </button>
+
+            </div>
+
+
+
+            <!-- FOUR CHOICES -->
+
+            <div class="quiz-type-card">
+
+                <div class="quiz-type-icon">
+                    🔘
+                </div>
+
+                <h3>
+                    1 Picture 4 Choices
+                </h3>
+
+                <p>
+                    One UML picture with
+                    four choices.
+                </p>
+
+                <button
+                    onclick="startGame('four')">
+
+                    PLAY
+
+                </button>
+
+            </div>
+
+
+
+            <!-- LETTERS -->
+
+            <div class="quiz-type-card">
+
+                <div class="quiz-type-icon">
+                    🔤
+                </div>
+
+                <h3>
+                    Picture + Letters
+                </h3>
+
+                <p>
+                    Build the UML diagram name
+                    using the letters.
+                </p>
+
+                <button
+                    onclick="startGame('letters')">
+
+                    PLAY
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     ALL DIAGRAMS
+========================================================== -->
+
+<div
+    id="diagramModal"
+    class="modal">
+
+
+    <div
+        class="modal-content large-modal">
+
+
+        <button
+            class="close-btn"
+            onclick="closeDiagrams()">
+
+            ×
+
+        </button>
+
+
+        <h2>
+            14 UML Diagrams
+        </h2>
+
+
+        <div
+            id="diagramGallery"
+            class="diagram-gallery">
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
